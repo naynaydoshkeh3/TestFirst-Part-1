@@ -20,8 +20,13 @@ describe('createCalculator', () => {
     which means each set of tests will start with value assigned to the calculator variable.
   */
   beforeEach(() => {
+    spyOn(Object, 'create').and.callThrough();
     calculator = createCalculator();
   });
+
+  it('does not use Object.create to create an instance', () => {
+    expect(Object.create.calls.any()).toBe(false);
+  })
 
   it('initially has a value of 0', () => {
     /*
@@ -71,6 +76,13 @@ describe('createCalculator', () => {
     expect(calculator.value()).toEqual(0);
   });
 
+  it('all methods are attached to the instance', () => {
+    expect(calculator.hasOwnProperty('add')).toBe(true);
+    expect(calculator.hasOwnProperty('subtract')).toBe(true);
+    expect(calculator.hasOwnProperty('value')).toBe(true);
+    expect(calculator.hasOwnProperty('clear')).toBe(true);
+  });
+
   describe('updateExistingInstances', () => {
     const arrayOfCalculatorInstances = [];
     let updatedInstances;
@@ -111,7 +123,12 @@ describe('createHumanCalculator', () => {
   let humanCalculator;
 
   beforeEach(() => {
+    spyOn(Object, 'create').and.callThrough();
     humanCalculator = createHumanCalculator();
+  });
+
+  it('creates an instance using Object.create', () => {
+    expect(Object.create).toHaveBeenCalled();
   });
 
   it('initially has a value of -10', () => {
@@ -162,5 +179,3 @@ describe('createHumanCalculator', () => {
     expect(humanCalculator.hasOwnProperty('clear')).toBe(false);
   });
 });
-
-
