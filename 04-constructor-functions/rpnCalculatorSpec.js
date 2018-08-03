@@ -27,14 +27,14 @@ describe('Calculator using reverse polish notation', () => {
   it('adds three numbers', () => {
     /* 
      Infix: 2+3+4
-     Postfix: 2 3 4 + +
+     Postfix: 2 3 + 4 +
     */
 
     rpnCalculatorInstance.push(2);
     rpnCalculatorInstance.push(3);
-    rpnCalculatorInstance.push(4);
     rpnCalculatorInstance.plus();
-    expect(rpnCalculatorInstance.value()).toBe(7);
+    expect(rpnCalculatorInstance.value()).toBe(5);
+    rpnCalculatorInstance.push(4);
     rpnCalculatorInstance.plus();
     expect(rpnCalculatorInstance.value()).toBe(9);
   });
@@ -54,30 +54,30 @@ describe('Calculator using reverse polish notation', () => {
   it('adds and subtracts', () => {
     /* 
      Infix: 2 + 3 - 4
-     Postfix: 2 3 4 - +
+     Postfix: 2 3 + 4 -
     */
 
     rpnCalculatorInstance.push(2);
     rpnCalculatorInstance.push(3);
+    rpnCalculatorInstance.plus();
+    expect(rpnCalculatorInstance.value()).toBe(5);
     rpnCalculatorInstance.push(4);
     rpnCalculatorInstance.minus();
-    expect(rpnCalculatorInstance.value()).toBe(-1);
-    rpnCalculatorInstance.plus();
     expect(rpnCalculatorInstance.value()).toBe(1);
   });
 
   it('multiplies and divides', () => {
     /* 
      Infix: 2 * 3 / 4
-     Postfix: 2 3 4 / *
+     Postfix: 2 3 * 4 /
     */
 
     rpnCalculatorInstance.push(2);
     rpnCalculatorInstance.push(3);
+    rpnCalculatorInstance.times();
+    expect(rpnCalculatorInstance.value()).toBe(6);
     rpnCalculatorInstance.push(4);
     rpnCalculatorInstance.divide();
-    expect(rpnCalculatorInstance.value()).toBe(0.75);
-    rpnCalculatorInstance.times();
     expect(rpnCalculatorInstance.value()).toBe(1.5);
   });
 
