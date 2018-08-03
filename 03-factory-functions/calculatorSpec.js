@@ -26,7 +26,7 @@ describe('createCalculator', () => {
 
   it('does not use Object.create to create an instance', () => {
     expect(Object.create.calls.any()).toBe(false);
-  })
+  });
 
   it('initially has a value of 0', () => {
     /*
