@@ -12,7 +12,7 @@ describe('helloWorld', () => {
     expect(helloWorld()).toBe('hello world');
   });
 
-  it('the object `goodbyeWorld` has two keys', () => {
+  it('the object `goodbyeWorld` has three keys', () => {
     expect(Object.keys(goodbyeWorld).length).toBe(3);
   });
 });
