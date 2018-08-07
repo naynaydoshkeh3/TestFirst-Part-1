@@ -14,9 +14,10 @@ describe('shortand object syntax', function() {
   it('creates a bark method on dog', () => {
     expect(dog.bark).toBeDefined();
     expect(typeof dog.bark).toBe('function');
-    expect(dog.bark()).toBe('ruff ruff');
+    expect(dog.bark()).toBe('ruff ruff!');
   });
   it('uses the global variable loud to create the computed method loudBark', function() {
+    // computed properties - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015
     expect(loud).toBeDefined();
     expect(loud).toBe('loud');
     expect(dog['loudBark']()).toBe('RUFF RUFF!');
