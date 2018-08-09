@@ -14,7 +14,7 @@ describe('shortand object syntax', function() {
   it('creates a bark method on dog', () => {
     expect(dog.bark).toBeDefined();
     expect(typeof dog.bark).toBe('function');
-    expect(dog.bark()).toBe('ruff ruff');
+    expect(dog.bark()).toBe('ruff ruff!');
   });
   it('uses the global variable loud to create the computed method loudBark', function() {
     expect(loud).toBeDefined();
@@ -28,4 +28,3 @@ describe('shortand object syntax', function() {
     expect(typeof loudBark).toBe('function');
   });
 });
-

@@ -1,6 +1,6 @@
 describe('helloWorld', () => {
   it('a `hello` variable is in the global scope', () => {
-    expect(hello).toBe('hello');
+    expect(hi).toBe('hi');
   });
 
   it('a `world` variable is in the global scope', () => {
@@ -9,7 +9,7 @@ describe('helloWorld', () => {
 
   it('the function helloWorld returns a string', () => {
     expect(helloWorld).toBeDefined();
-    expect(helloWorld()).toBe('hello world');
+    expect(helloWorld()).toBe('hi world');
   });
 
   it('the object `goodbyeWorld` has three keys', () => {

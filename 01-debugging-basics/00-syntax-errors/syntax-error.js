@@ -1,4 +1,4 @@
-const hello =;
+const hi =;
 const bye = 'bye;
 const world = 'world"
 
