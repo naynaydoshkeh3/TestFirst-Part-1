@@ -1,5 +1,5 @@
 describe('helloWorld', () => {
-  it('a `hello` variable is in the global scope', () => {
+  it('a `hi` variable is in the global scope', () => {
     expect(hi).toBe('hi');
   });
 
