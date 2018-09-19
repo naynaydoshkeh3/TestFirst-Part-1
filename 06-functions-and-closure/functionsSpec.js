@@ -74,7 +74,7 @@ describe('yourFunctionRunner - higher-order functions', () => {
 
   Then, even if the scope that the function was defined in goes away, it continues to have access
   to have scope.
-*/
+  */
 describe('makeAdder', () => {
   it('returns a function', () => {
     const returnValue = makeAdder(5);
@@ -99,6 +99,38 @@ describe('makeAdder', () => {
 //
 
 describe('once', () => {
+  it('accepts a function argument and returns a new function', () => {
+    const sayHello = () => {
+      return 'Hello!';
+    };
+
+    const returnValue = once(sayHello);
+
+    expect(typeof returnValue).toBe('function');
+  });
+
+  it('the function returned from "once" can invoke the function passed to "once"', () => {
+    const sayGoodbye = () => {
+      return 'Goodbye!';
+    };
+
+    const funcReturned = once(sayGoodbye);
+
+    expect(funcReturned()).toBe('Goodbye!');
+  });
+
+  it('the function passed to once can only be invoked one time', () => {
+    const isItFriday = () => {
+      return 'TODAY IS FRIDAY!! TGIF!!!';
+    };
+
+    const funcReturned = once(isItFriday);
+
+    expect(funcReturned()).toBe('TODAY IS FRIDAY!! TGIF!!!');
+    expect(funcReturned()).toBe(
+      'the nested function has already been called...'
+    );
+  });
   it('should only increment num one time', () => {
     let num = 50;
 
