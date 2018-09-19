@@ -1,3 +1,6 @@
+/* eslint-env jasmine */
+/* eslint-disable no-undef */
+
 /*
   In this exercise create a function that can
   create and return a calculator object

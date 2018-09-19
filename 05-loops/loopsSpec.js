@@ -1,3 +1,6 @@
+/* eslint-env jasmine */
+/* eslint-disable no-undef */
+
 describe('Looping', () => {
   // Let's repeat ourselves several times
   describe('The function `repeat`', () => {
@@ -274,73 +277,46 @@ describe('looping over objects', () => {
     });
   });
 
-  describe('The function `renameFiles`', () => {
-    /*
-      You are given an array of desired filenames in the order of their creation. Since two files cannot have equal names, the one which comes later will have an addition to its name in a form of (n), where "n" is the smallest positive integer such that the obtained name is not used yet.
+  describe('sort', () => {
+    it('should sort a simple integer list', () => {
+      let unsorted = [17, 43, 216, 3, 9, 27];
+      let sorted = sort(unsorted);
 
-      Return an array of names that will be given to the files.
-
-      Example:
-
-      var files = ['myFile', 'anotherFile', 'family-picture', 'myFile', 'another-file', 'myFile'];
-      var newFileNames = renameFiles(files);
-      console.log(newFilesNames);
-      --> ['myFile', 'anotherFile', 'family-picture', 'myFile(1)', 'anotherFile(1)', 'myFile(2)']    
-    */
-
-    it('returns an array', () => {
-      expect(
-        Array.isArray(renameFiles(['file', 'fileTwo', 'fileThree', 'fileFour']))
-      ).toEqual(true);
+      expect(sorted).toEqual([3, 9, 17, 27, 43, 216]);
+      expect(sorted.length).toBe(6);
     });
 
-    it('does not rename files if duplicates are not present', () => {
-      expect(
-        renameFiles(['FullstackTestFirst', 'GuessingGame', 'FileWatcher'])
-      ).toEqual(['FullstackTestFirst', 'GuessingGame', 'FileWatcher']);
+    it('should sort positive and negative integers', () => {
+      let unsorted = [17, -43, 216, 3, -9, 27];
+      let sorted = sort(unsorted);
+
+      expect(sorted).toEqual([-43, -9, 3, 17, 27, 216]);
+      expect(sorted.length).toBe(6);
     });
 
-    it('renames files if there are duplicates by adding `(n)` to the end of the filename where `n` is the smallest positive integer that the obtained name did not use.', () => {
-      expect(renameFiles(['hello', 'world', 'hello'])).toEqual([
-        'hello',
-        'world',
-        'hello(1)',
+    it('should clumsily sort strings', () => {
+      let unsorted = ['toad', 'prune', 'pretzel', 'aardvark', 'tuna', 'weasel'];
+      let sorted = sort(unsorted);
+
+      expect(sorted).toEqual([
+        'aardvark',
+        'pretzel',
+        'prune',
+        'toad',
+        'tuna',
+        'weasel',
       ]);
+      expect(sorted.length).toBe(6);
     });
 
-    it('does not rename files to names that are already taken', () => {
-      expect(
-        renameFiles([
-          'a(1)',
-          'a(6)',
-          'a',
-          'a',
-          'a',
-          'a',
-          'a',
-          'a',
-          'a',
-          'a',
-          'a',
-          'a',
-        ])
-      ).toEqual([
-        'a(1)',
-        'a(6)',
-        'a',
-        'a(2)',
-        'a(3)',
-        'a(4)',
-        'a(5)',
-        'a(7)',
-        'a(8)',
-        'a(9)',
-        'a(10)',
-        'a(11)',
-      ]);
-      //This definitely increases the difficulty of the problem! If a file already exists, you can't use that name. For example, if file(3) already exists, you shouldn't name another file 'file(3)'.
-    });
+    it('does not use built-in sorting methods', () => {
+      spyOn(Array.prototype, 'sort').and.callThrough();
 
-    //This is a tricky one! You will need to use all the tools (and debugging tools) to get to a solution.
+      let unsorted = [107, -443, 216, 300, -9, 247];
+      let sorted = sort(unsorted);
+
+      expect(sorted).toEqual([-443, -9, 107, 216, 247, 300]);
+      expect(Array.prototype.sort.calls.count()).toBe(0);
+    });
   });
 });

@@ -1,3 +1,6 @@
+/* eslint-env jasmine */
+/* eslint-disable no-undef */
+
 // See http://en.wikipedia.org/wiki/Reverse_Polish_notation
 
 describe('Calculator using reverse polish notation', () => {

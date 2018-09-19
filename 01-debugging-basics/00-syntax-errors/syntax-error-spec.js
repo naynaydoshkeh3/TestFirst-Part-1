@@ -1,3 +1,6 @@
+/* eslint-env jasmine */
+/* eslint-disable no-undef */
+
 describe('helloWorld', () => {
   it('a `hi` variable is in the global scope', () => {
     expect(hi).toBe('hi');

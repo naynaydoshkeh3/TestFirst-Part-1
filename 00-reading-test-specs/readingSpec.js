@@ -1,3 +1,6 @@
+/* eslint-env jasmine */
+/* eslint-disable no-undef */
+
 describe('the function `hello`', () => {
   it('says hello', () => {
     expect(hello()).toEqual(FILL_ME_IN);
@@ -17,8 +20,8 @@ describe('the function `add`', () => {
 
   it('adds 4 and 5, the value returned is 9', () => {
     returnValue += add(4, 5);
-   
-    expect(returnValue).toEqual(9)
+
+    expect(returnValue).toEqual(9);
   });
 
   it('adds 7 and 8, the value returned is 15', () => {
@@ -27,4 +30,3 @@ describe('the function `add`', () => {
     expect(returnValue).toEqual(15);
   });
 });
-
