@@ -12,7 +12,7 @@
   Read the documentation linked above and apply your learnings to the problem
 */
 
-describe('The arguments array-like object', () => {
+xdescribe('concatString: Using the arguments "array-like object"', () => {
   beforeEach(() => {
     spyOn(Array, 'from').and.callThrough(); // What is Array.from? is it mentioned or used in any of the examples from the documentation linked? https://goo.gl/w9KrQK
   });
@@ -42,7 +42,7 @@ describe('The arguments array-like object', () => {
   This will explore the idea that JS' functions are just values that can be passed aroudn.
   For example, here we can have a function that creates another function.
 */
-describe('higher-order functions', () => {
+xdescribe('yourFunctionRunner - higher-order functions', () => {
   const callThisFunction = () => {
     return 'Called Value';
   };
@@ -50,7 +50,9 @@ describe('higher-order functions', () => {
   it('means that a function can take a function as an argument', () => {
     // Create a function that runs functions and returns their "return" value
     expect(yourFunctionRunner(callThisFunction)).toEqual('Called Value');
+  });
 
+  it('takes multiple function arguments and invokes them', () => {
     const andThisFunction = () => {
       return ' and Other Value';
     };
@@ -74,11 +76,20 @@ describe('higher-order functions', () => {
   to have scope.
 */
 describe('makeAdder', () => {
-  it("takes an argument A and returns a function that adds A to any value it's passed", () => {
+  it('returns a function', () => {
+    const returnValue = makeAdder(5);
+
+    expect(typeof returnValue).toBe('function');
+  });
+  it('takes a number argument and returns a function that adds the number passed to `makeAdder` to its own number argument', () => {
     const adderOf2function = makeAdder(2);
 
     // Now let's call the function that we got back and add 5 to the closed-over value
-    expect(adderOf2function(5)).toEqual(7);
+    expect(adderOf2function(5)).toBe(7);
+
+    const adderOf10Function = makeAdder(10);
+
+    expect(adderOf10Function(22)).toBe(32);
   });
 });
 
