@@ -12,7 +12,7 @@
   Read the documentation linked above and apply your learnings to the problem
 */
 
-xdescribe('concatString: Using the arguments "array-like object"', () => {
+describe('concatString: Using the arguments "array-like object"', () => {
   beforeEach(() => {
     spyOn(Array, 'from').and.callThrough(); // What is Array.from? is it mentioned or used in any of the examples from the documentation linked? https://goo.gl/w9KrQK
   });
@@ -42,7 +42,7 @@ xdescribe('concatString: Using the arguments "array-like object"', () => {
   This will explore the idea that JS' functions are just values that can be passed aroudn.
   For example, here we can have a function that creates another function.
 */
-xdescribe('yourFunctionRunner - higher-order functions', () => {
+describe('yourFunctionRunner - higher-order functions', () => {
   const callThisFunction = () => {
     return 'Called Value';
   };
