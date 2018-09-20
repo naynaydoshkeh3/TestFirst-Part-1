@@ -115,7 +115,7 @@ describe('createCalculator', () => {
       for (let i = 0; i < updatedInstances.length; i++) {
         if (typeof updatedInstances[i].square !== 'function') {
           hasSquareMethod = false;
-          return hasSquareMethod;
+          break;
         }
       }
 
