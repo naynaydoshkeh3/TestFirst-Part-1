@@ -88,7 +88,7 @@ describe('createCalculator', () => {
   });
 
   describe('updateExistingInstances', () => {
-    const arrayOfCalculatorInstances = [];
+    let arrayOfCalculatorInstances;
     let updatedInstances;
 
     /* 
