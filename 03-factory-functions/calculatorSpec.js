@@ -25,6 +25,7 @@ describe('createCalculator', () => {
   beforeEach(() => {
     spyOn(Object, 'create').and.callThrough();
     calculator = createCalculator();
+    calculaotr2 = createCalculator();
   });
 
   it('does not use Object.create to create an instance', () => {
@@ -100,17 +101,35 @@ describe('createCalculator', () => {
       }
     });
 
+    it('the addSquareMethod returns an array', () => {
+      updatedInstances = addSquareMethod(arrayOfCalculatorInstances);
+      expect(Array.isArray(updatedInstances)).toBe(true);
+    });
+
     it('update existing instances, adds a square method to every instance', () => {
       updatedInstances = addSquareMethod(arrayOfCalculatorInstances);
-      expect(
-        /* 
-          The [Array.prototype.every](https://goo.gl/2gUavP) method iterates (loops) over the updatedInstances array
-          and checks that each calculator instance has a "square" method 
-        */
-        updatedInstances.every(instance => {
-          return instance.square;
-        })
-      ).toBe(true);
+
+      let hasSquareMethod = true;
+
+      for (let i = 0; i < updatedInstances.length; i++) {
+        if (typeof updatedInstances[i].square !== 'function') {
+          hasSquareMethod = false;
+          return hasSquareMethod;
+        }
+      }
+
+      expect(hasSquareMethod).toBe(true);
+
+      // this is the same spec as above but without a for loop, it uses the every method instead.
+      // expect(
+      //   /*
+      //     The [Array.prototype.every](https://goo.gl/2gUavP) method iterates (loops) over the updatedInstances array
+      //     and checks that each calculator instance has a "square" method
+      //   */
+      //   updatedInstances.every(instance => {
+      //     return instance.square;
+      //   })
+      // ).toBe(true);
     });
 
     it('the square methods squares the current total', () => {
