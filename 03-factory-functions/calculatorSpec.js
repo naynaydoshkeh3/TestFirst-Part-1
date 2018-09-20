@@ -107,9 +107,10 @@ describe('createCalculator', () => {
     });
 
     it('update existing instances, adds a square method to every instance', () => {
+      let hasSquareMethod;
       updatedInstances = addSquareMethod(arrayOfCalculatorInstances);
-
-      let hasSquareMethod = true;
+      
+      if(updatedInstances.length > 0 ) hasSquareMethod = true;
 
       for (let i = 0; i < updatedInstances.length; i++) {
         if (typeof updatedInstances[i].square !== 'function') {
