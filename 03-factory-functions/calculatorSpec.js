@@ -134,6 +134,7 @@ describe('createCalculator', () => {
     });
 
     it('the square methods squares the current total', () => {
+      updatedInstances = addSquareMethod(arrayOfCalculatorInstances);
       updatedInstances[0].add(5);
       expect(updatedInstances[0].square()).toBe(25);
     });
