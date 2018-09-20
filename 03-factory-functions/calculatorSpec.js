@@ -96,6 +96,7 @@ describe('createCalculator', () => {
       and pushed into the arrayOfCalculaotrInstances array. 
     */
     beforeEach(() => {
+      arrayOfCalculatorInstances = [];
       for (let i = 0; i < 1000; i++) {
         arrayOfCalculatorInstances.push(createCalculator());
       }
