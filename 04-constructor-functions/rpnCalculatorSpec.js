@@ -114,6 +114,7 @@ describe('Calculator using reverse polish notation', () => {
     expect(typeof RPNCalculator.prototype.minus).toBe('function');
     expect(typeof RPNCalculator.prototype.divide).toBe('function');
     expect(typeof RPNCalculator.prototype.value).toBe('function');
+    expect(typeof RPNCalculator.prototype.times).toBe('function');
   });
 
   /* 
