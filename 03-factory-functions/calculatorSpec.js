@@ -25,7 +25,6 @@ describe('createCalculator', () => {
   beforeEach(() => {
     spyOn(Object, 'create').and.callThrough();
     calculator = createCalculator();
-    calculaotr2 = createCalculator();
   });
 
   it('does not use Object.create to create an instance', () => {
@@ -93,7 +92,7 @@ describe('createCalculator', () => {
 
     /* 
       In the beforeEach function, 1000 calculator instances are created
-      and pushed into the arrayOfCalculaotrInstances array. 
+      and pushed into the arrayOfCalculatorInstances array. 
     */
     beforeEach(() => {
       arrayOfCalculatorInstances = [];
