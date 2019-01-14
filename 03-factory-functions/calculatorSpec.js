@@ -116,7 +116,7 @@ describe('createCalculator', () => {
 
     /* 
       In the beforeEach function, 1000 calculator instances are created
-      and pushed into the arrayOfCalculaotrInstances array. 
+      and pushed into the arrayOfCalculatorInstances array. 
     */
     beforeEach(() => {
       arrayOfCalculatorInstances = [];
@@ -178,6 +178,13 @@ describe('createHumanCalculator', () => {
   it('creates an instance using Object.create and the instance has a total property', () => {
     expect(Object.create).toHaveBeenCalled();
     expect(humanCalculator.total).toBe(-10);
+  });
+
+  it('all the methods are not on the "instance" (humanCalculator), rather, they are accessed via the prototype chain', () => {
+    expect(humanCalculator.hasOwnProperty('add')).toBe(false);
+    expect(humanCalculator.hasOwnProperty('subtract')).toBe(false);
+    expect(humanCalculator.hasOwnProperty('value')).toBe(false);
+    expect(humanCalculator.hasOwnProperty('clear')).toBe(false);
   });
 
   it('all the methods are not on the "instance" (humanCalculator), rather, they are accessed via the prototype chain', () => {
