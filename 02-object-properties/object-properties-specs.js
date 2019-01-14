@@ -16,16 +16,16 @@ describe('Properties on Object Literal', () => {
 
   describe('the function `setPropsOnObj`', () => {
     it('sets x to 7', () => {
-      expect(object.x).toEqual(7);
+      expect(object.x).toBe(7);
     });
 
     it('sets `y` to 8 (and we can use a string to access it)', () => {
-      expect(object['y']).toEqual(8);
+      expect(object['y']).toBe(8);
     });
 
     it('sets the property `onePlus` to a function that adds one to its argument', () => {
-      expect(object.onePlus(4)).toEqual(5);
-      expect(object['onePlus'](123)).toEqual(124);
+      expect(object.onePlus(4)).toBe(5);
+      expect(object['onePlus'](123)).toBe(124);
     });
   });
 });
@@ -46,20 +46,20 @@ describe('Properties on an Array Object', () => {
 
   describe('the function `setPropsOnArr`', () => {
     it('sets the property `hello` to a function that returns the string `Hello!`', () => {
-      expect(arrayObject.hello()).toEqual('Hello!');
+      expect(arrayObject.hello()).toBe('Hello!');
     });
 
     it('sets the property `full` and assigns the value `stack`', () => {
-      expect(arrayObject['full']).toEqual('stack');
+      expect(arrayObject['full']).toBe('stack');
     });
 
     it('accesses the zeroth index value in the array', () => {
-      expect(arrayObject[0]).toEqual(5);
+      expect(arrayObject[0]).toBe(5);
     });
 
     it("sets the property 'twoTimes' to a function that multiplies its parameter by 2", () => {
-      expect(arrayObject.twoTimes(4)).toEqual(8);
-      expect(arrayObject['twoTimes'](123)).toEqual(246);
+      expect(arrayObject.twoTimes(4)).toBe(8);
+      expect(arrayObject['twoTimes'](123)).toBe(246);
     });
   });
 });
@@ -82,11 +82,11 @@ describe('Properties on a Function Object', () => {
 
   describe('the function `setPropsOnFunc`', () => {
     it('sets year to 20??', () => {
-      expect(functionObject.year).toEqual('20??');
+      expect(functionObject.year).toBe('20??');
     });
 
     it('sets `divideByTwo` to a function that accepts a number and returns the value divided by two ', () => {
-      expect(functionObject.divideByTwo(6)).toEqual(3);
+      expect(functionObject.divideByTwo(6)).toBe(3);
     });
   });
 });

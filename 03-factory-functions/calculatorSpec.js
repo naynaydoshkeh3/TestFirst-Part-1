@@ -13,6 +13,7 @@
 
 describe('createCalculator', () => {
   let calculator;
+  let secondCalculator;
 
   /*
     Below we're calling the `createCalculator` function, it returns
@@ -25,6 +26,7 @@ describe('createCalculator', () => {
   beforeEach(() => {
     spyOn(Object, 'create').and.callThrough();
     calculator = createCalculator();
+    secondCalculator = createCalculator();
   });
 
   it('does not use Object.create to create an instance', () => {
@@ -39,36 +41,55 @@ describe('createCalculator', () => {
       outcome of the calculations. When a property is a function, it is called a "method"
       hmm.. I guess we'll need to store those outcomes somewhere..
     */
-    expect(calculator.value()).toEqual(0);
+    expect(calculator.value()).toBe(0);
+    expect(secondCalculator.value()).toBe(0);
+
   });
 
   it('can add a number', () => {
     calculator.add(2);
-    expect(calculator.value()).toEqual(2);
+    secondCalculator.add(5);
+    expect(calculator.value()).toBe(2);
+    expect(secondCalculator.value()).toBe(5);
   });
 
   it('can add two numbers', () => {
     calculator.add(2);
     calculator.add(3);
-    expect(calculator.value()).toEqual(5);
+    secondCalculator.add(70);
+    secondCalculator.add(20);
+    expect(calculator.value()).toBe(5);
+    expect(secondCalculator.value()).toBe(90);
   });
 
   it('can add many numbers', () => {
     calculator.add(2);
     calculator.add(3);
     calculator.add(4);
-    expect(calculator.value()).toEqual(9);
+    secondCalculator.add(12);
+    secondCalculator.add(33);
+    secondCalculator.add(55);
+
+    expect(calculator.value()).toBe(9);
+    expect(secondCalculator.value()).toBe(100);
   });
 
   it('can subtract a number', () => {
+
     calculator.subtract(2);
-    expect(calculator.value()).toEqual(-2);
+    secondCalculator.subtract(15);
+    expect(calculator.value()).toBe(-2);
+    expect(secondCalculator.value()).toBe(-15);
   });
 
   it('can add and subtract numbers', () => {
     calculator.add(3);
     calculator.subtract(2);
-    expect(calculator.value()).toEqual(1);
+    secondCalculator.add(15);
+    secondCalculator.add(13);
+    secondCalculator.subtract(10);
+    expect(calculator.value()).toBe(1);
+    expect(secondCalculator.value()).toBe(18);
   });
 
   it('can clear its value', () => {
@@ -76,7 +97,10 @@ describe('createCalculator', () => {
     calculator.add(10);
     calculator.subtract(7);
     calculator.clear();
-    expect(calculator.value()).toEqual(0);
+    secondCalculator.subtract(55);
+    secondCalculator.clear();
+    expect(calculator.value()).toBe(0);
+    expect(secondCalculator.value()).toBe(0);
   });
 
   it('all methods are attached to the instance', () => {
@@ -87,7 +111,7 @@ describe('createCalculator', () => {
   });
 
   describe('updateExistingInstances', () => {
-    const arrayOfCalculatorInstances = [];
+    let arrayOfCalculatorInstances;
     let updatedInstances;
 
     /* 
@@ -95,25 +119,46 @@ describe('createCalculator', () => {
       and pushed into the arrayOfCalculaotrInstances array. 
     */
     beforeEach(() => {
+      arrayOfCalculatorInstances = [];
       for (let i = 0; i < 1000; i++) {
         arrayOfCalculatorInstances.push(createCalculator());
       }
     });
 
-    it('update existing instances, adds a square method to every instance', () => {
+    it('the addSquareMethod returns an array', () => {
       updatedInstances = addSquareMethod(arrayOfCalculatorInstances);
-      expect(
-        /* 
-          The [Array.prototype.every](https://goo.gl/2gUavP) method iterates (loops) over the updatedInstances array
-          and checks that each calculator instance has a "square" method 
-        */
-        updatedInstances.every(instance => {
-          return instance.square;
-        })
-      ).toBe(true);
+      expect(Array.isArray(updatedInstances)).toBe(true);
+    });
+
+    it('update existing instances, adds a square method to every instance', () => {
+      let hasSquareMethod;
+      updatedInstances = addSquareMethod(arrayOfCalculatorInstances);
+
+      if (updatedInstances.length > 0) hasSquareMethod = true;
+
+      for (let i = 0; i < updatedInstances.length; i++) {
+        if (typeof updatedInstances[i].square !== 'function') {
+          hasSquareMethod = false;
+          break;
+        }
+      }
+
+      expect(hasSquareMethod).toBe(true);
+
+      // this is the same spec as above but without a for loop, it uses the every method instead.
+      // expect(
+      //   /*
+      //     The [Array.prototype.every](https://goo.gl/2gUavP) method iterates (loops) over the updatedInstances array
+      //     and checks that each calculator instance has a "square" method
+      //   */
+      //   updatedInstances.every(instance => {
+      //     return instance.square;
+      //   })
+      // ).toBe(true);
     });
 
     it('the square methods squares the current total', () => {
+      updatedInstances = addSquareMethod(arrayOfCalculatorInstances);
       updatedInstances[0].add(5);
       expect(updatedInstances[0].square()).toBe(25);
     });
@@ -130,8 +175,16 @@ describe('createHumanCalculator', () => {
     humanCalculator = createHumanCalculator();
   });
 
-  it('creates an instance using Object.create', () => {
+  it('creates an instance using Object.create and the instance has a total property', () => {
     expect(Object.create).toHaveBeenCalled();
+    expect(humanCalculator.total).toBe(-10);
+  });
+
+  it('all the methods are not on the "instance" (humanCalculator), rather, they are accessed via the prototype chain', () => {
+    expect(humanCalculator.hasOwnProperty('add')).toBe(false);
+    expect(humanCalculator.hasOwnProperty('subtract')).toBe(false);
+    expect(humanCalculator.hasOwnProperty('value')).toBe(false);
+    expect(humanCalculator.hasOwnProperty('clear')).toBe(false);
   });
 
   it('initially has a value of -10', () => {
@@ -175,10 +228,4 @@ describe('createHumanCalculator', () => {
     expect(humanCalculator.value()).toEqual(-10);
   });
 
-  it('all the methods are not on the "instance" (humanCalculator), rather, they are accessed via the prototype chain', () => {
-    expect(humanCalculator.hasOwnProperty('add')).toBe(false);
-    expect(humanCalculator.hasOwnProperty('subtract')).toBe(false);
-    expect(humanCalculator.hasOwnProperty('value')).toBe(false);
-    expect(humanCalculator.hasOwnProperty('clear')).toBe(false);
-  });
 });

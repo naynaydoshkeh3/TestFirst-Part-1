@@ -1,11 +1,9 @@
 const hi =;
 const bye = 'bye;
 const world = 'world"
-
-function(){
+function() {
   return `${hello} ${world}`
 }
-
 const goodbyeWorld = {
   good: 'good';
   bye,

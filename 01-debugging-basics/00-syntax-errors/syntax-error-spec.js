@@ -16,6 +16,7 @@ describe('helloWorld', () => {
   });
 
   it('the object `goodbyeWorld` has three keys', () => {
-    expect(Object.keys(goodbyeWorld).length).toBe(3);
+    const arrayOfKeys = Object.keys(goodbyeWorld);
+    expect(arrayOfKeys.length).toBe(3);
   });
 });

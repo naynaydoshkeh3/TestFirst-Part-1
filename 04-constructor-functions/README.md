@@ -39,22 +39,4 @@ A B -
 
 <hr>
 
-### Section Overview
 
-- [03-Constructor-Functions Overview](https://youtu.be/bDCLUIQx2qU)
-- [What is an RPN Calculator?](https://youtu.be/bDCLUIQx2qU)
-- [Test Spec Overview](https://youtu.be/bDCLUIQx2qU?t=7m40s)
-- [Constructor Function Mini-Lesson](https://youtu.be/bDCLUIQx2qU?t=12m25s)
-
-### Curriculum Videos
-
-- [__proto__ vs '.prototype'](https://learn.fullstackacademy.com/workshop/57a21d1d39616e0300f91dd6/content/5841e3384b5f3d000456e0cf/text)
-- [Constructor Functions Overview](https://learn.fullstackacademy.com/workshop/57a21d1d39616e0300f91dd6/content/5841e3443506550004fb1e0c/text)
-- [new keyword](https://learn.fullstackacademy.com/workshop/57a21d1d39616e0300f91dd6/content/5841e3533506550004fb1e10/text)
-- [prototype Property & Constructors](https://learn.fullstackacademy.com/workshop/57a21d1d39616e0300f91dd6/content/5841e3633506550004fb1e14/text)
-- [Adding Methods to .prototype](https://learn.fullstackacademy.com/workshop/57a21d1d39616e0300f91dd6/content/5841e37d3506550004fb1e18/text)
-- [Rule 4: Binding 'this' using the new keyword](https://learn.fullstackacademy.com/workshop/57a21d1d39616e0300f91dd6/content/57a379cd196d170300fd6373/text)
-
-### Additional Resources
-
-- Eloquent JavaScript [The Secret Life Of Objects](http://eloquentjavascript.net/06_object.html)  

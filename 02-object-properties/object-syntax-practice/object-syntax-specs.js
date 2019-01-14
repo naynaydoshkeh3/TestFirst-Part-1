@@ -8,7 +8,7 @@
   The main goal is to introduce new syntax you may encounter or use to improve your code.
 */
 
-describe('shortand object syntax', function() {
+xdescribe('shortand object syntax', function() {
   it('the object "dog" should be in the global scope', function() {
     expect(typeof dog).toBe('object');
   });

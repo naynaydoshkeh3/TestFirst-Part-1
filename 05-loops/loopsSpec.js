@@ -92,7 +92,7 @@ describe('Looping', () => {
       fruitArray.type = 'fruits';
       expect(fruitArray.type).toEqual('fruits');
 
-      fruitArray.first = function() {
+      fruitArray.first = function () {
         return this[0];
       };
 
@@ -140,7 +140,7 @@ describe('Looping', () => {
 */
 
 describe('looping over objects', () => {
-  describe('the function `paramify`', () => {
+  xdescribe('the function `paramify`', () => {
     it('works on an empty object', () => {
       expect(paramify({})).toEqual('');
     });
@@ -186,7 +186,7 @@ describe('looping over objects', () => {
         Alphabet is a constructor function that will use the `new` method of
         object creation
       */
-      const Alphabet = function() {
+      const Alphabet = function () {
         this.a = 1;
         this.b = 2;
       };
@@ -194,6 +194,7 @@ describe('looping over objects', () => {
       Alphabet.prototype.c = 3;
 
       const alphabet = new Alphabet();
+      // {a:1, b:2} --> Alphabet.prototype
 
       // see how we're skipping `c` ?
       expect(paramify(alphabet)).toEqual('a=1&b=2');
@@ -252,7 +253,7 @@ describe('looping over objects', () => {
     });
 
     it("skips properties of the object's prototype", () => {
-      const Alphabet = function() {
+      const Alphabet = function () {
         this.a = 1;
         this.b = 2;
       };

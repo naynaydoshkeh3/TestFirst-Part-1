@@ -50,6 +50,7 @@ describe('Calculator using reverse polish notation', () => {
 
     rpnCalculatorInstance.push(2);
     rpnCalculatorInstance.push(3);
+    // [2,3]
     rpnCalculatorInstance.minus();
     expect(rpnCalculatorInstance.value()).toBe(-1);
   });
@@ -113,6 +114,7 @@ describe('Calculator using reverse polish notation', () => {
     expect(typeof RPNCalculator.prototype.plus).toBe('function');
     expect(typeof RPNCalculator.prototype.minus).toBe('function');
     expect(typeof RPNCalculator.prototype.divide).toBe('function');
+    expect(typeof RPNCalculator.prototype.times).toBe('function');
     expect(typeof RPNCalculator.prototype.value).toBe('function');
   });
 
@@ -122,7 +124,7 @@ describe('Calculator using reverse polish notation', () => {
     for `instanceof`: https://mzl.la/1dqYtqW 
   */
 
-  it('the rpnCalculatorInstance object should be an instance of the RPNCalculator Constructor', function() {
+  it('the rpnCalculatorInstance object should be an instance of the RPNCalculator Constructor', function () {
     expect(rpnCalculatorInstance instanceof RPNCalculator).toBe(true);
   });
 });
