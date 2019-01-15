@@ -90,6 +90,9 @@ describe('Calculator using reverse polish notation', () => {
     what is wrong with their calculator when their calculator is empty.  There are a few
     ways of throwing an exception, review the `throw statement` - https://mzl.la/1CkHpEM and create
     an exception.
+    
+    Note: "throw" statements were not covered intentionally, we won't focus on them moving forward, 
+    this is an exercise to practice reading and applying information from documentation.
   */
 
   it("fails informatively when there's not enough values stashed away", () => {
