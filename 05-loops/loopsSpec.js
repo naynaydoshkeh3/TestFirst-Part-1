@@ -140,7 +140,7 @@ describe('Looping', () => {
 */
 
 describe('looping over objects', () => {
-  xdescribe('the function `paramify`', () => {
+  describe('the function `paramify`', () => {
     it('works on an empty object', () => {
       expect(paramify({})).toEqual('');
     });
