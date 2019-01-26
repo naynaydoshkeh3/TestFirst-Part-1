@@ -267,10 +267,12 @@ describe('looping over objects', () => {
     });
 
     it('calls Object.keys and does not use Object.prototype.hasOwnProperty', () => {
-      spyOn(Object.prototype, 'hasOwnProperty').and.callThrough();
+      const object = { f: 6, e: 5, d: 4, c: 3, b: 2, a: 1 };
+
+      spyOn(object, 'hasOwnProperty').and.callThrough();      
       spyOn(Object, 'keys').and.callThrough();
 
-      const object = { f: 6, e: 5, d: 4, c: 3, b: 2, a: 1 };
+
       paramifyObjectKeys(object);
 
       expect(Object.keys).toHaveBeenCalled();
