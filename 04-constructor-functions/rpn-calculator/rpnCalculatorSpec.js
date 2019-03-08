@@ -9,7 +9,7 @@ describe('Calculator using reverse polish notation', () => {
   beforeEach(() => {
     /*
       How is the RPNCalculator function invoked? Is this a factory function or a ...?
-      is there a `new` keyword (wink wink)?
+      is the `new` operator used (wink wink)?
     */
 
     rpnCalculatorInstance = new RPNCalculator();
@@ -128,7 +128,7 @@ describe('Calculator using reverse polish notation', () => {
     for `instanceof`: https://mzl.la/1dqYtqW 
   */
 
-  it('the rpnCalculatorInstance object should be an instance of the RPNCalculator Constructor', function () {
+  it('the rpnCalculatorInstance object should be an instance of the RPNCalculator Constructor', function() {
     expect(rpnCalculatorInstance instanceof RPNCalculator).toBe(true);
   });
 });

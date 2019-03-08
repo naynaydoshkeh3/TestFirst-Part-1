@@ -2,10 +2,10 @@
 /* eslint-disable no-undef */
 
 /*
-  The main goal of this section is to provide extra practice using ES2015 Syntax. 
-  If you find the specs confusing we advise you to not spend too much time on this
-  section, you can gain the same benefit studying the solution to this suite of specs. 
-  The main goal is to introduce new syntax you may encounter or use to improve your code.
+  The primary goal of this section is to provide extra practice using ES2015 Syntax.
+  If you find the specs confusing we advise you not to spend too much time on this
+  section, you can gain the same benefit studying the solution to this suite of specs.
+  The primary goal is to introduce new syntax you may encounter or use to improve your code.
 */
 
 describe('shortand object syntax', function () {
