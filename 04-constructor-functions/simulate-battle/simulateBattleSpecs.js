@@ -59,13 +59,23 @@ describe('simulateBattle function', () => {
     expect(typeof simulateBattle(pikachu, charizard, 'Pikachu')).toBe('string');
   });
 
+  it('returns a string', () => {
+    expect(typeof simulateBattle(pikachu, charizard, 'Pikachu')).toBe('string');
+  });
+
   it('returns the winner (the pokemon that has health remaining)', () => {
     expect(simulateBattle(pikachu, charizard, 'Pikachu')).toBe(
       'Charizard Wins!'
     );
+  });
+
+  it('returns the same winner as the previous example when the first two arguments are in a different position', () => {
     expect(simulateBattle(charizard, pikachu, 'Pikachu')).toBe(
       'Charizard Wins!'
     );
+  });
+
+  it('returns the winner', () => {
     expect(simulateBattle(pikachu, charizard, 'Charizard')).toBe(
       'Charizard Wins!'
     );
