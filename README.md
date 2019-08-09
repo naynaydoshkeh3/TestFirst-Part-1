@@ -6,3 +6,37 @@ TestFirst JavaScript is a multi-part series that provides practice to intermedia
 
 1. Forked & cloned the TestFirst repository.
 2. Installed node, testem, and a text editor.
+
+
+### Setup Test First
+
+- **[Fork the repository to your personal GitHub Account](https://github.com/fullstackacademy/TestFirst-Part-1/)**
+- Clone the repository to your local machine
+- Install `testem` globally
+
+```sh
+~ $ npm install testem -g
+```
+
+<hr>
+<br>
+
+After your install `testem`, run the `testem` command and copy/paste the link displayed in your terminal to your browser. If you get an error such as `testem not found` try the steps below.
+
+### Run Testem without global (-g) installation 
+
+If you can't install `testem` globally, there is a solution! Instead of installing `testem` globally, install it locally in your TestFirst directory. Every TestFirst repository on GitHub comes with a `package.json` file. We won't get into the details (for now) on the purpose of `package.json` because it will handle install `testem` locally.
+
+In your TestFirst directory run the command:
+
+```sh
+$ npm install
+```
+
+After the installation is completed, run the command:
+
+```sh
+$ npm test
+```
+
+The `npm test` command will run the local installation of `testem`! If you installed `testem` locally with this approach, instead of running `testem` run `npm test` whenever you want to launch `testem`. In addition, whenever clone a new TestFirst repository to your local machine (such as TestFirst-Part-2 or Checkpoints), you need to run `npm install` first, afterwards you can run `npm test`.
