@@ -95,7 +95,7 @@ describe('shallowCopy', () => {
   it('is a function', () => {
     expect(typeof shallowCopy).toBe('function');
   });
-  it('merges and returns a shallow copy of two', () => {
+  it('merges and returns a shallow copy of two arrays', () => {
     const gumBrands = ['orbit', 'trident', 'chiclet', 'strident'];
     const mintBrands = ['altoids', 'certs', 'breath savers', 'tic tac'];
 
