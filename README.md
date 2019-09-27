@@ -15,10 +15,6 @@ TestFirst JavaScript is a multi-part series that provides practice to intermedia
 - Install `testem` with the `npm install` command
 - Run `testem` with the `npm test` command.
 
-```sh
-$ npm install
-```
-
 
 ### Run Testem with npm test
 
