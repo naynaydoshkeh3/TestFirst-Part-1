@@ -3,11 +3,11 @@
 
 describe('the function `hello`', () => {
   it('says hello', () => {
-    expect(hello()).toEqual(FILL_ME_IN);
+    expect(hello()).toEqual("Hello!");
   });
 
   it('says hello to someone', () => {
-    expect(hello('Fred')).toEqual(FILL_ME_IN);
+    expect(hello('Fred')).toEqual("Hello, Fred!");
   });
 });
 
@@ -16,6 +16,7 @@ describe('the function `add`', () => {
 
   beforeEach(() => {
     // re-assign returnValue to 0 before each spec
+    returnValue = 0;
   });
 
   it('adds 4 and 5, the value returned is 9', () => {
