@@ -14,6 +14,8 @@ function setPropsOnObj(object){
 
 let obj = {};
 
+//part two
+
 setPropsOnObj(obj);
 
 console.log(obj);
@@ -32,5 +34,44 @@ function setPropsOnArr(arr){
         num = num*2;
         return num;
     }    
+
+}
+
+//part 3
+
+function setPropsOnFunc(func) {
+
+    func.year = '20??';
+
+    func.divideByTwo = function(num) {
+        
+        num = num/2;
+
+        return num;
+    }
+
+
+
+
+}
+
+function shallowCopy(arrOne, arrTwo) {
+
+
+    if (Array.isArray(arrOne))
+    {
+        const arrMerged = [...arrOne, ...arrTwo];
+
+        return arrMerged;
+    }
+    else {
+        let clone = { ...arrOne, ...arrTwo };
+
+        //clone = Object.assign({}, arrTwo);
+
+        console.log(clone);
+
+        return clone;
+    }
 
 }
